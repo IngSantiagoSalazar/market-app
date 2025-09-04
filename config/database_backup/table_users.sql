@@ -11,7 +11,7 @@ CREATE TABLE USERS(
  status BOOLEAN NOT NULL DEFAULT TRUE,
  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
- deleted_at TIMESTAMPTZ null
+ deleted_at TIMESTAMPTZ NULL
  );
  --insertar nombres tabla
  insert into users (firstname,lastname,mobile_number,email,password)
