@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market- Register </title>
+    <title>Market - Register </title>
+      <link rel="icon" type = "image/png" href="../src/Icons/Market_main.png" />
 </head>
-    <link rel="icon" type = "image/png" href="../src/Icons/Market_main.png" />
-
-    <body bgcolor="#EDE9FE">
+<body>
     <center><h1> Register<h1></center> <br>
-        <table border="1" align="center"> <br>
-        <tr> <td><label>firstname:</label></td></tr>
-                <tr> <td><input type="text"></td></tr>
-        <tr> <td><label>Lastname:</label></td></tr>
-                <tr> <td><input type="text"></td></tr>
-                <tr> <td><label>Mobile number:</label></td></tr> 
-                <tr> <td><input type="text"></td></tr>
-                <tr> <td><label>identification number:</label></td></tr>
-                <tr> <td><input type="text"></td></tr>
-                <tr> <td><label>E-mail:</label></td></tr>
-                <tr> <td><input type="text"></td></tr>
-                <tr> <td><label>password:</label></td></tr>
-                <tr> <td><input type="password"></td></tr>
-                <tr><td><button>Register</button> </td>   </tr>
-        </table>
+    <form name="Register-form" action="signup.php" method="post">
+        <table border="6" align="center"> <br>
+        <tr><td><label>Firstname:</label></td></tr>
+        <tr><td><input type="text" name="fname" placeholder= "Doflamingo" required><br></td></tr>
+        <tr><td><label>Lastname:</label></td></tr>
+        <tr><td><input type="text" name="lname"required><br></td></tr>
+        <tr><td><label>Mobile number:</label></td></tr>
+        <tr><td><input type="text" name="mnumber"required><br></td></tr>
+        <tr><td><label>Identification number:</label></td></tr>
+        <tr><td><input type="text" name="idnumber"required><br></td></tr>
+        <tr><td><label>Email:</label></td></tr>
+        <tr><td><input type="email" name="email"required><br></td></tr>
+        <tr><td><label>Password:</label></td></tr>
+        <tr><td><input type="password" name="passwd"required><br><br></td></tr>
+                <tr><td><center><button>Register</button> </center> </td>   </tr>
+        </form></table>
         
 </body>
 </html>
