@@ -13,22 +13,28 @@
 
    $enc_pass =password_hash($p_wd,PASSWORD_DEFAULT);
 
-   $check_mail = "
+   $check_email = "
    SELECT
    u.mail
    from  
-   users u
+    users u
    where
-   email = '$e_mail' or  ide_number = '$id_number'
+   email = '$e_mail' or  ide_number = '$ide_number'
    LIMIT 1
    ";
-   $res_check= pg_query($conn,$check_mail);
+   $res_check= pg_query($conn,$check_email);
    if(pg_num_rows($res_check)>0){
    echo "<script>alert('user already exist!!')</script>";
       header('refresh:0;url=singin.html');
    } else {
       $query = "INSERT INTO users(firstname,lastname,mobile_number,ide_number,email,password)
-      Values('$f_name','$l_name','$m_number','$ide_number','$e_mail','$enc_pass')";
+      Values(
+      '$f_name'
+      ,'$l_name',
+      '$m_number',
+      '$ide_number',
+      '$e_mail',
+      '$p_wd')";
 
       //Step 4  execute query
       $res= pg_query($conn,$query);
