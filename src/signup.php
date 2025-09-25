@@ -11,11 +11,13 @@
    $e_mail = $_POST['email'];
    $p_wd = $_POST['passwd'];
 
-   $enc_pass =password_hash($p_wd,PASSWORD_DEFAULT);
+   
+   //$enc_pass =password_hash($p_wd,PASSWORD_DEFAULT);
+   $enc_pass = md5($p_wd);
 
    $check_email = "
    SELECT
-   u.mail
+   u.email
    from  
     users u
    where
@@ -34,7 +36,7 @@
       '$m_number',
       '$ide_number',
       '$e_mail',
-      '$p_wd')";
+      '$enc_pass')";
 
       //Step 4  execute query
       $res= pg_query($conn,$query);
