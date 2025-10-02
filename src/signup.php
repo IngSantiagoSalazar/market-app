@@ -4,12 +4,12 @@
    require('../config/database.php');
    //Step 2 get form-data
 
-   $f_name = $_POST['fname']; //los campos dentro de los corchetes 
-   $l_name = $_POST['lname']; //deber ser igual al de el $
-   $m_number = $_POST['mnumber'];
-   $ide_number = $_POST['idnumber'];
-   $e_mail = $_POST['email'];
-   $p_wd = $_POST['passwd'];
+   $l_name = trim($_POST['lname']); //deber ser igual al de el $
+   $f_name = trim($_POST['fname']); //los campos dentro de los corchetes 
+   $m_number = trim($_POST['mnumber']);
+   $ide_number = trim($_POST['idnumber']);
+   $e_mail = trim($_POST['email']);
+   $p_wd = trim($_POST['passwd']);
 
    
    //$enc_pass =password_hash($p_wd,PASSWORD_DEFAULT);
