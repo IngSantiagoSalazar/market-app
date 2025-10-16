@@ -34,12 +34,12 @@ $local_data_connection = "
      $conn_local = pg_connect($local_data_connection);
 
 
-     if(!$conn_supa){
-     echo "error";
+//(!$conn_supa){
+     //echo "error";
 
 
-     }else{
+   //  }else{
 
-      echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
-     }
+     // echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
+     //}
 ?>
