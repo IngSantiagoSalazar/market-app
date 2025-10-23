@@ -22,6 +22,51 @@
         <th>Status</th>
         <th>Options</th>
         </tr>
+            <?php
+                $sql_users=" 
+                select 
+                u.firstname || ' '|| u.lastname as fullname ,
+                u.email,  
+                u.ide_number,
+                u.mobile_number,
+                case
+                 when u.status = true then 'active' else 'inactive'
+                 end as status
+                 from 
+                 users u                
+                ";
+            $result = pg_query($conn_local,$sql_users);
+            if(!$result){
+
+                die("error: ".preg_last_error());
+                
+                }
+                
+                while($row = pg_fetch_assoc($result)){
+
+                    echo" <tr>
+                    <td>".$row['fullname']."</td>
+                    <td>".$row['email']."</td>
+                    <td>3213213</td>
+                    <td>1231233</td>
+                    <td>active</td>
+                    <td>Joe Doe</td>
+                    <td>
+                
+                    <a href='#'><img src='icons/update.png'width='30'>
+                    <a href='#'><img src='icons/delete.png'width='30'>
+                    <a href='#'><img src='icons/search.png'width='30'>
+                    </td>
+                    </tr>
+                    
+
+                    ";
+                }
+            
+
+            ?>
+
+             
 
         <tr>
         <td>Joe Doe</td>
@@ -36,7 +81,6 @@
            <a href="#"><img src="icons/update.png"width="30">
             <a href="#"><img src="icons/delete.png"width="30">
         </td>
-
 
 
 

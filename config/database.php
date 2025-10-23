@@ -30,16 +30,28 @@ $local_data_connection = "
      port=$local_port
 
      ";
-     $conn_supa = pg_connect($supa_connection);
+     // $conn_supa = pg_connect($supa_connection);
      $conn_local = pg_connect($local_data_connection);
 
 
-//(!$conn_supa){
-     //echo "error";
+if   (!$conn_local){
+     echo "error";
 
 
-   //  }else{
+     }else{
 
-     // echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
-     //}
+          echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
+
+     }
+
+/*     if (!$conn_supa){
+     echo "error";
+
+
+     }else{
+
+          echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
+
+     }
+          */
 ?>
