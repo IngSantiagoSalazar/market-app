@@ -27,7 +27,7 @@
    $res_check= pg_query($conn_supa,$check_email);
    if(pg_num_rows($res_check)>0){
    echo "<script>alert('user already exist!!')</script>";
-      header('refresh:0;url=singin.html');
+      header('refresh:0;url=singup.html');
    } else {
       $query = "INSERT INTO users(firstname,lastname,mobile_number,ide_number,email,password)
       Values(

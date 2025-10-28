@@ -40,7 +40,7 @@ if   (!$conn_local){
 
      }else{
 
-          echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
+          //echo " BIEN HECHO SO FAR SO GOOD LOQUITIN :D  ";
 
      }
 

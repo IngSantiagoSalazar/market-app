@@ -10,10 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>marketapp- List users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <table
-        border="1" align="center">
+        class="container mt-3">
+       <table align="center" class="table table-dark table-striped">
         <tr>
          <th>fullname</th>
         <th>E-mail</th>
@@ -25,6 +28,7 @@
             <?php
                 $sql_users=" 
                 select 
+                u.id as user_id,
                 u.firstname || ' '|| u.lastname as fullname ,
                 u.email,  
                 u.ide_number,
@@ -44,24 +48,22 @@
                 
                 while($row = pg_fetch_assoc($result)){
 
-                    echo" <tr>
-                    <td>".$row['fullname']."</td>
-                    <td>".$row['email']."</td>
-                    <td>3213213</td>
-                    <td>1231233</td>
-                    <td>active</td>
-                    <td>Joe Doe</td>
-                    <td>
-                
-                    <a href='#'><img src='icons/update.png'width='30'>
-                    <a href='#'><img src='icons/delete.png'width='30'>
-                    <a href='#'><img src='icons/search.png'width='30'>
-                    </td>
-                    </tr>
-                    
-
-                    ";
-                }
+                  echo "<tr>
+                <td>".$row['fullname']. "</td>
+                <td>".$row['email']. "</td>
+                <td>".$row['ide_number']. "</td>
+                <td>".$row['mobile_number']. "</td>
+                <td>Active</td>
+                <td>
+                    <a href = '#'> <img src = 'icons/search.png' width = '30'> </a>
+                    <a href = '#'> <img src = 'icons/Update.png' width = '30'></a>
+                    <a href='><a href = '#'> 
+                    <a href = 'delete_users.php?userid=" .$row['user_id']."'> <img src = 'icons/delete.png' width = '30'> </a>
+                    <a href = '#'> <img src = 'icons/edit.png' width = '30'> </a>
+                </td>
+            </tr>
+            ";
+      }
             
 
             ?>

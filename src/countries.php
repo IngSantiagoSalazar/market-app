@@ -37,7 +37,7 @@
         }
         else{
             echo "<script>alert('User already exists')</script>";
-            header('refresh:0;url=signup.html');
+            header('refresh:0;url=signin.html');
         }
     }
 ?>
