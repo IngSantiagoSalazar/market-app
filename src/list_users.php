@@ -55,11 +55,11 @@
                 <td>".$row['mobile_number']. "</td>
                 <td>Active</td>
                 <td>
-                    <a href = '#'> <img src = 'icons/search.png' width = '30'> </a>
-                    <a href = '#'> <img src = 'icons/Update.png' width = '30'></a>
-                    <a href='><a href = '#'> 
-                    <a href = 'delete_users.php?userid=" .$row['user_id']."'> <img src = 'icons/delete.png' width = '30'> </a>
-                    <a href = '#'> <img src = 'icons/edit.png' width = '30'> </a>
+                   <a href = '#'> <img src = 'icons/search.png' width = '30'> </a>
+                    <a href='delete_user.php?userId=" .$row['user_id']."'>
+                    <img src = 'icons/delete.png' width = '30'> </a>
+                    <a href='edit_user_form.php?userId=" .$row['user_id']."'>
+                    <img src = 'icons/edit.png' width = '30'> </a>    
                 </td>
             </tr>
             ";
@@ -80,8 +80,9 @@
         <td>
            <a href="#"><img src="icons/search.png"width="30">
            <source></a>|
-           <a href="#"><img src="icons/update.png"width="30">
             <a href="#"><img src="icons/delete.png"width="30">
+            <a href="#"><img src="icons/edit.png"width="30">
+
         </td>
 
 
