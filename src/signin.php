@@ -1,6 +1,16 @@
 <?php
    //Step 1 get database access
    require('../config/database.php');
+
+  session_start();
+
+  if(isset($_SESSION['session_user_id'])){
+    header('refresh:0;url=main.php');
+
+    //Start or creation session
+    session_start();
+  }
+
    //Step 2 get form-data
    $e_mail = trim($_POST['email']);
    $p_wd = trim($_POST['passwd']);
@@ -11,6 +21,8 @@
    //step 3. Query to validate data
    $sql_check_user = "
     select 
+    u.id,
+    u.firstname || ' ' || u.lastname as fullname,
     u.email, 	
     u.password
     from
@@ -22,7 +34,14 @@
    ";  
 
    //Step 4excuse query
-   $res_check = pg_query($conn_supa,$sql_check_user);
+    $res_check = pg_query($conn_local,$sql_check_user);
+
+    $row = pg_fetch_assoc($res_check)
+      $_SESSION['session_user_id']= $row['id'];
+      $_SESSION['session_user_fullname']= $row['fullname'];
+
+   
+
 
    if(pg_num_rows($res_check) >0){
     //echo "User exists. Go to main page!!!";
