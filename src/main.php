@@ -2,14 +2,8 @@
 session_start();
 
 if(!isset($_SESSION['session_user_id'])){
-
     header('refresh:0;url=error_403.html');
-
-}else{
-    header('refresh:0;url=signin.html');
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +104,8 @@ if(!isset($_SESSION['session_user_id'])){
 <body>
     <div class="container">
         <h1>Welcome to the Marketapp</h1>
-        <p class="user-name">User: Here print your name</p>
+        <center><b>USER:</b>
+        <?php echo $_SESSION['session_user_fullname'];?></center>
         <div class="links">
             <a href="list_users.php">List all users</a>
         </div>
