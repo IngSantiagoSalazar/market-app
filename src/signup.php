@@ -10,6 +10,7 @@
    $ide_number = trim($_POST['idnumber']);
    $e_mail = trim($_POST['email']);
    $p_wd = trim($_POST['passwd']);
+   $url_photo = "photos/piolin.png";
 
    
    //$enc_pass =password_hash($p_wd,PASSWORD_DEFAULT);
@@ -29,14 +30,16 @@
    echo "<script>alert('user already exist!!')</script>";
       header('refresh:0;url=singup.html');
    } else {
-      $query = "INSERT INTO users(firstname,lastname,mobile_number,ide_number,email,password)
+      $query = "INSERT INTO users(firstname,lastname,mobile_number,ide_number,email,password,url_photo)
       Values(
       '$f_name'
       ,'$l_name',
       '$m_number',
       '$ide_number',
       '$e_mail',
-      '$enc_pass')";
+      '$enc_pass',
+      '$url_photo'
+      )";
 
       //Step 4  execute query
       $res= pg_query($conn_local,$query);

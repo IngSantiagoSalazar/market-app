@@ -1,12 +1,13 @@
 <?php
    //Step 1 get database access
    require('../config/database.php');
+   /*
    session_start();
 
     if(!isset($_SESSION['session_user_id'])){
     header('refresh:0;url=error_403.html');
     }
-
+ */
    ?>
 
    
@@ -24,7 +25,8 @@
         class="container mt-3">
        <table align="center" class="table table-dark table-striped">
         <tr>
-         <th>fullname</th>
+        <th style="text-align: center">Photo</th>
+        <th>fullname</th>
         <th>E-mail</th>
         <th>Ide.number</th>
         <th>Phone number</th>
@@ -34,7 +36,8 @@
             <?php
                 $sql_users=" 
                 select 
-                u.id as user_id,
+                  u.url_photo,
+                    u.id as user_id,
                 u.firstname || ' '|| u.lastname as fullname ,
                 u.email,  
                 u.ide_number,
@@ -55,14 +58,16 @@
                 while($row = pg_fetch_assoc($result)){
 
                   echo "<tr>
+                <td align='center'><img src=".$row['url_photo']." width='40'></td>
                 <td>".$row['fullname']. "</td>
                 <td>".$row['email']. "</td>
                 <td>".$row['ide_number']. "</td>
                 <td>".$row['mobile_number']. "</td>
-                <td>Active</td>
+                <td>".$row['status']. "</td>
+
                 <td>
                    <a href = '#'> <img src = 'icons/search.png' width = '30'> </a>
-                    <a href='delete_user.php?userId=" .$row['user_id']."'>
+                    <a href='delete_users.php?userId=" .$row['user_id']."'>
                     <img src = 'icons/delete.png' width = '30'> </a>
                     <a href='edit_user_form.php?userId=" .$row['user_id']."'>
                     <img src = 'icons/edit.png' width = '30'> </a>    
@@ -74,28 +79,6 @@
 
             ?>
 
-             
-
-        <tr>
-        <td>Joe Doe</td>
-        <td>joe@gmail.com</td>
-        <td>3213213</td>
-        <td>1231233</td>
-        <td>active</td>
-
-        <td>
-           <a href="#"><img src="icons/search.png"width="30">
-           <source></a>|
-            <a href="#"><img src="icons/delete.png"width="30">
-            <a href="#"><img src="icons/edit.png"width="30">
-
-        </td>
-
-
-
-
-
-        </tr>
     
     </table>
 </body>

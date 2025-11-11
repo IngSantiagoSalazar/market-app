@@ -4,7 +4,7 @@
    
 
    //step 2. Get Data or params
-   $user_id = $_GET['userid'];
+   $user_id = $_GET['userId'];
    //step 3 prepare query
    $sql_delete_user ="delete from users where id= $user_id ";
     //Step 4. execute query
