@@ -46,6 +46,7 @@ $result = pg_query($conn_local,$sql_get_user);
         <input type="text" name="ide_number" 
         value="<?php echo $ide_number?>" 
         required> <br><br>
+        <label>User Photo:</label><br><input type="file"name="photo_user"> <br><br>
         <button>Update user</button>
     </body>
 </html>
