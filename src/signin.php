@@ -21,9 +21,10 @@
     u.id,
     u.firstname || ' ' || u.lastname as fullname,
     u.email, 	
-    u.password
+    u.password,
+    u.url_photo
     from
-        users u 
+     users u 
     where 
     u.email = '$e_mail' and
     u.password = '$enc_pass'
@@ -34,8 +35,10 @@
     $res_check = pg_query($conn_local,$sql_check_user);
 
     $row = pg_fetch_assoc($res_check);
-      $_SESSION['session_user_id'] = $row['id'];
-      $_SESSION['session_user_fullname']= $row['fullname'];
+    $_SESSION['session_user_id'] = $row['id'];
+    $_SESSION['session_user_fullname']= $row['fullname'];
+    $_SESSION['session_user_url_photo']= $row['url_photo'];
+
 
    
 

@@ -25,32 +25,49 @@ if(!isset($_SESSION['session_user_id'])){
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         /* Contenedor Principal */
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco translúcido */
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
             width: 350px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efecto hover para el contenedor */
+        .container:hover {
+            transform: translateY(-10px); /* Efecto de elevación */
         }
 
         /* Título */
         h1 {
-            color: #4A90E2; /* Azul suave para el título */
-            font-size: 28px;
+            color: #ff0000ff; /* Azul suave para el título */
+            font-size: 32px;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Nombre del usuario */
         .user-name {
-            font-size: 20px;
-            font-weight: 600;
-            color: #7F8C8D; /* Gris suave para el nombre */
+            font-size: 24px; /* Tamaño de fuente aumentado */
+            font-weight: 700;
+            color: #FF0000; /* Rojo para el nombre */
             margin-bottom: 30px;
+        }
+
+        /* Imagen del usuario */
+        .user-photo {
+            width: 200px; /* Tamaño cuadrado */
+            height: 200px;
+            object-fit: cover; /* Mantiene la imagen en su aspecto */
+            margin-bottom: 20px;
+            border: 4px solid #ff0000ff; /* Borde azul para la foto */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para la imagen */
         }
 
         /* Enlaces */
@@ -104,8 +121,10 @@ if(!isset($_SESSION['session_user_id'])){
 <body>
     <div class="container">
         <h1>Welcome to the Marketapp</h1>
-        <center><b>USER:</b>
-        <?php echo $_SESSION['session_user_fullname'];?></center>
+        <div class="user-info">
+            <img src="<?php echo $_SESSION['session_user_url_photo']; ?>" class="user-photo" alt="User Photo">
+            <p class="user-name"><?php echo $_SESSION['session_user_fullname']; ?></p>
+        </div>
         <div class="links">
             <a href="list_users.php">List all users</a>
         </div>
